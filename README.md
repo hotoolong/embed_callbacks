@@ -1,15 +1,13 @@
 # EmbedCallbacks
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/embed_callbacks`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem makes it easy to create callbacks.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'embed_callbacks'
+gem 'simple_callbacker', github: 'hotoolong/embed_callbacks'
 ```
 
 And then execute:
@@ -18,11 +16,39 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install embed_callbacks
+    $ gem install specific_install
+    $ gem specific_install git@github.com:hotoolong/embed_callbacks.git trunk
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'embed_callbacks'
+
+class Sample
+  include 'EmbedCallbacks'
+  set_callback :target, :before, :callback
+
+  def target
+    puts 'target'
+  end
+
+  def before_callback
+    puts 'before_callback'
+  end
+
+  def after_callback
+    puts 'after_callback'
+  end
+
+  def around_callback
+    puts 'around_callback'
+  end
+end
+sample = Sample.new
+sample.taregt
+# before_callback
+# target
+```
 
 ## Development
 

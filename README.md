@@ -1,5 +1,7 @@
 # EmbedCallbacks
 
+[![Build Status](https://travis-ci.org/hotoolong/embed_callbacks.svg?branch=trunk)](https://travis-ci.org/hotoolong/embed_callbacks)
+
 This gem makes it easy to create callbacks.
 
 ## Installation

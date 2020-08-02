@@ -1,6 +1,6 @@
 # EmbedCallbacks
 
-[![Build Status](https://travis-ci.org/hotoolong/embed_callbacks.svg?branch=trunk)](https://travis-ci.org/hotoolong/embed_callbacks)
+[![Build Status](https://travis-ci.org/hotoolong/embed_callbacks.svg?branch=main)](https://travis-ci.org/hotoolong/embed_callbacks)
 
 This gem makes it easy to create callbacks.
 
@@ -19,7 +19,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install specific_install
-    $ gem specific_install git@github.com:hotoolong/embed_callbacks.git trunk
+    $ gem specific_install git@github.com:hotoolong/embed_callbacks.git main 
 
 ## Usage
 

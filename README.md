@@ -23,12 +23,22 @@ Or install it yourself as:
 
 ## Usage
 
+embed_callback provides the following callbacks.
+
+`before` is called the operation before the specified method.
+`after` is called processing after the specified method.
+`around` is called processing before and after the specified method.
+`rescue` is called if the specified method produces an error.
+`ensure` is always called if the given method completes.
+
+### before example
+
 ```ruby
 require 'embed_callbacks'
 
 class Sample
-  include 'EmbedCallbacks'
-  set_callback :target, :before, :callback
+  include EmbedCallbacks
+  set_callback :target, :before, :before_callback
 
   def target
     puts 'target'
@@ -38,18 +48,108 @@ class Sample
     puts 'before_callback'
   end
 
+end
+sample = Sample.new
+sample.target
+#=> before_callback
+#=> target
+```
+
+### after example
+
+```ruby
+require 'embed_callbacks'
+
+class Sample
+  include EmbedCallbacks
+  set_callback :target, :after, :after_callback
+
+  def target
+    puts 'target'
+  end
+
   def after_callback
     puts 'after_callback'
+  end
+
+end
+sample = Sample.new
+sample.target
+#=> target
+#=> after_callback
+```
+
+### around example
+
+```ruby
+require 'embed_callbacks'
+
+class Sample
+  include EmbedCallbacks
+  set_callback :target, :around, :around_callback
+
+  def target
+    puts 'target'
   end
 
   def around_callback
     puts 'around_callback'
   end
+
 end
 sample = Sample.new
-sample.taregt
-# before_callback
-# target
+sample.target
+#=> around_callback
+#=> target
+#=> around_callback
+```
+### rescue example
+
+```ruby
+require 'embed_callbacks'
+
+class Sample
+  include EmbedCallbacks
+  set_callback :target, :rescue, :rescue_callback
+
+  def target
+    raise 'target'
+  end
+
+  def rescue_callback
+    puts 'rescue_callback'
+  end
+
+end
+sample = Sample.new
+sample.target
+
+#=> rescue_callback
+#=> RuntimeError (target)
+```
+
+### ensure example
+
+```ruby
+require 'embed_callbacks'
+
+class Sample
+  include EmbedCallbacks
+  set_callback :target, :ensure, :ensure_callback
+
+  def target
+    puts 'target'
+  end
+
+  def ensure_callback
+    puts 'ensure_callback'
+  end
+
+end
+sample = Sample.new
+sample.target
+#=> target
+#=> ensure_callback
 ```
 
 ## Development

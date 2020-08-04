@@ -25,11 +25,11 @@ Or install it yourself as:
 
 embed_callback provides the following callbacks.
 
-`before` is called the operation before the specified method.
-`after` is called processing after the specified method.
-`around` is called processing before and after the specified method.
-`rescue` is called if the specified method produces an error.
-`ensure` is always called if the given method completes.
+- `before` is called the operation before the specified method.
+- `after` is called processing after the specified method.
+- `around` is called processing before and after the specified method.
+- `rescue` is called if the specified method produces an error.
+- `ensure` is always called if the given method completes.
 
 ### before example
 

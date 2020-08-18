@@ -1,6 +1,7 @@
 # EmbedCallbacks
 
 [![Build Status](https://travis-ci.org/hotoolong/embed_callbacks.svg?branch=main)](https://travis-ci.org/hotoolong/embed_callbacks)
+[![codecov](https://codecov.io/gh/hotoolong/embed_callbacks/branch/main/graph/badge.svg)](https://codecov.io/gh/hotoolong/embed_callbacks)
 
 This gem makes it easy to create callbacks.
 

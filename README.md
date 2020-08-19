@@ -32,6 +32,9 @@ embed_callback provides the following callbacks.
 - `rescue` is called if the specified method produces an error.
 - `ensure` is always called if the given method completes.
 
+It also lets you decide whether or not to run the process according to the conditions.
+The conditions can be if and unless.
+
 ### before example
 
 ```ruby
@@ -151,6 +154,36 @@ sample = Sample.new
 sample.target
 #=> target
 #=> ensure_callback
+```
+
+### condition example
+
+```ruby
+require 'embed_callbacks'
+
+class Sample
+  include EmbedCallbacks
+  attr_accessor :check_flag
+
+  set_callback :target, :before, :before_callback, if: ->(record) { record.check_flag }
+
+  def target
+    puts 'target'
+  end
+
+  def before_callback
+    puts 'before_callback'
+  end
+
+end
+sample = Sample.new
+sample.check_flag = false
+sample.target
+#=> target
+sample.check_flag = true
+sample.target
+#=> before_callback
+#=> target
 ```
 
 ## Development

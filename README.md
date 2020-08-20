@@ -10,7 +10,7 @@ This gem makes it easy to create callbacks.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'simple_callbacker', github: 'hotoolong/embed_callbacks'
+gem 'embed_callbacks'
 ```
 
 And then execute:
@@ -19,8 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install specific_install
-    $ gem specific_install git@github.com:hotoolong/embed_callbacks.git main 
+    $ gem install embed_callbacks
 
 ## Usage
 

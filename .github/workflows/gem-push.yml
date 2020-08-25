@@ -2,25 +2,19 @@ name: Ruby Gem
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ $default-branch ]
 
 jobs:
   build:
     name: Build + Publish
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        ruby: [ '2.7.x', '2.6.x', '2.5.x' ]
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby }}
+        ruby-version: 2.6.x
 
     - name: Install dependencies
       run: |

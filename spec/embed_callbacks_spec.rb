@@ -3,6 +3,16 @@ RSpec.describe EmbedCallbacks do
     expect(EmbedCallbacks::VERSION).not_to be nil
   end
 
+  it 'misbehavior' do
+    expect { 
+      class MisbehaviorCallbackClass
+        include EmbedCallbacks
+
+        set_callback :target1, :aaa, :callback1
+      end
+    }.to raise_error(ArgumentError, 'The behavior should be set in the before after around rescue ensure')
+  end
+
   context 'before callback' do
     class BeforeCallbackClass
       include EmbedCallbacks

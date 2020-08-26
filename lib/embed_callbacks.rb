@@ -46,7 +46,7 @@ module EmbedCallbacks
 
     def initialize(behavior)
       @behavior = behavior
-      raise ArgumentError, 'The behavior should be set in the before after around rescue' unless KINDS.include?(behavior)
+      raise ArgumentError, 'The behavior should be set in the ' + KINDS.join(' ') unless KINDS.include?(behavior)
     end
 
     def before?

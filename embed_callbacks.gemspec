@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Whenever you want to add a callback, you can easily incorporate the process.\n }
   spec.homepage      = "https://github.com/hotoolong/embed_callbacks"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
 
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

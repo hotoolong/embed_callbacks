@@ -8,7 +8,7 @@ RSpec.describe EmbedCallbacks do
       class MisbehaviorCallbackClass
         include EmbedCallbacks
 
-        set_callback :target1, :aaa, :callback1
+        embed_callback :target1, :aaa, :callback1
       end
     }.to raise_error(ArgumentError, 'The behavior should be set in the before after around rescue ensure')
   end
@@ -19,9 +19,9 @@ RSpec.describe EmbedCallbacks do
 
       attr_accessor :buffer
 
-      set_callback :target1, :before, :callback1
-      set_callback :target2, :before, :callback1
-      set_callback :target2, :before, :callback2
+      embed_callback :target1, :before, :callback1
+      embed_callback :target2, :before, :callback1
+      embed_callback :target2, :before, :callback2
 
       def initialize
         @buffer = ''
@@ -64,9 +64,9 @@ RSpec.describe EmbedCallbacks do
       include EmbedCallbacks
       attr_accessor :buffer
 
-      set_callback :target1, :after, :callback1
-      set_callback :target2, :after, :callback1
-      set_callback :target2, :after, :callback2
+      embed_callback :target1, :after, :callback1
+      embed_callback :target2, :after, :callback1
+      embed_callback :target2, :after, :callback2
 
       def initialize
         @buffer = ''
@@ -109,9 +109,9 @@ RSpec.describe EmbedCallbacks do
       include EmbedCallbacks
       attr_accessor :buffer
 
-      set_callback :target1, :around, :callback1
-      set_callback :target2, :around, :callback1
-      set_callback :target2, :around, :callback2
+      embed_callback :target1, :around, :callback1
+      embed_callback :target2, :around, :callback1
+      embed_callback :target2, :around, :callback2
 
       def initialize
         @buffer = ''
@@ -154,10 +154,10 @@ RSpec.describe EmbedCallbacks do
       include EmbedCallbacks
       attr_accessor :buffer
 
-      set_callback :target1, :rescue, :callback1
-      set_callback :target2, :rescue, :callback1
-      set_callback :target3, :rescue, :callback1
-      set_callback :target3, :rescue, :callback2
+      embed_callback :target1, :rescue, :callback1
+      embed_callback :target2, :rescue, :callback1
+      embed_callback :target3, :rescue, :callback1
+      embed_callback :target3, :rescue, :callback2
 
       def initialize
         @buffer = ''
@@ -212,10 +212,10 @@ RSpec.describe EmbedCallbacks do
       include EmbedCallbacks
       attr_accessor :buffer
 
-      set_callback :target1, :ensure, :callback1
-      set_callback :target2, :ensure, :callback1
-      set_callback :target3, :ensure, :callback1
-      set_callback :target3, :ensure, :callback2
+      embed_callback :target1, :ensure, :callback1
+      embed_callback :target2, :ensure, :callback1
+      embed_callback :target3, :ensure, :callback1
+      embed_callback :target3, :ensure, :callback2
 
       def initialize
         @buffer = ''
@@ -271,10 +271,10 @@ RSpec.describe EmbedCallbacks do
       attr_accessor :buffer
       attr_accessor :check_flag
 
-      set_callback :target1, :before, :callback1, if: ->(record) { record.check_flag }
-      set_callback :target2, :after,  :callback1, if: ->(record) { record.check_flag }
-      set_callback :target3, :rescue, :callback1, if: ->(record) { record.check_flag }
-      set_callback :target4, :ensure, :callback2, if: ->(record) { record.check_flag }
+      embed_callback :target1, :before, :callback1, if: ->(record) { record.check_flag }
+      embed_callback :target2, :after,  :callback1, if: ->(record) { record.check_flag }
+      embed_callback :target3, :rescue, :callback1, if: ->(record) { record.check_flag }
+      embed_callback :target4, :ensure, :callback2, if: ->(record) { record.check_flag }
 
       def initialize
         @buffer = ''
@@ -372,10 +372,10 @@ RSpec.describe EmbedCallbacks do
       attr_accessor :buffer
       attr_accessor :check_flag
 
-      set_callback :target1, :before, :callback1, unless: ->(record) { record.check_flag }
-      set_callback :target2, :after,  :callback1, unless: ->(record) { record.check_flag }
-      set_callback :target3, :rescue, :callback1, unless: ->(record) { record.check_flag }
-      set_callback :target4, :ensure, :callback2, unless: ->(record) { record.check_flag }
+      embed_callback :target1, :before, :callback1, unless: ->(record) { record.check_flag }
+      embed_callback :target2, :after,  :callback1, unless: ->(record) { record.check_flag }
+      embed_callback :target3, :rescue, :callback1, unless: ->(record) { record.check_flag }
+      embed_callback :target4, :ensure, :callback2, unless: ->(record) { record.check_flag }
 
       def initialize
         @buffer = ''

@@ -41,7 +41,7 @@ require 'embed_callbacks'
 
 class Sample
   include EmbedCallbacks
-  set_callback :target, :before, :before_callback
+  embed_callback :target, :before, :before_callback
 
   def target
     puts 'target'
@@ -65,7 +65,7 @@ require 'embed_callbacks'
 
 class Sample
   include EmbedCallbacks
-  set_callback :target, :after, :after_callback
+  embed_callback :target, :after, :after_callback
 
   def target
     puts 'target'
@@ -89,7 +89,7 @@ require 'embed_callbacks'
 
 class Sample
   include EmbedCallbacks
-  set_callback :target, :around, :around_callback
+  embed_callback :target, :around, :around_callback
 
   def target
     puts 'target'
@@ -113,7 +113,7 @@ require 'embed_callbacks'
 
 class Sample
   include EmbedCallbacks
-  set_callback :target, :rescue, :rescue_callback
+  embed_callback :target, :rescue, :rescue_callback
 
   def target
     raise 'target'
@@ -138,7 +138,7 @@ require 'embed_callbacks'
 
 class Sample
   include EmbedCallbacks
-  set_callback :target, :ensure, :ensure_callback
+  embed_callback :target, :ensure, :ensure_callback
 
   def target
     puts 'target'
@@ -164,7 +164,7 @@ class Sample
   include EmbedCallbacks
   attr_accessor :check_flag
 
-  set_callback :target, :before, :before_callback, if: ->(record) { record.check_flag }
+  embed_callback :target, :before, :before_callback, if: ->(record) { record.check_flag }
 
   def target
     puts 'target'

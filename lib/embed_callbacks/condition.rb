@@ -6,8 +6,9 @@ class Condition
   end
 
   def call(record)
-    return @if.call(record) if @if 
+    return @if.call(record) if @if
     return !@unless&.call(record) if @unless
+
     true
   end
 end

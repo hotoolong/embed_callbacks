@@ -8,7 +8,7 @@ module EmbedCallbacks
   end
 
   module PrependMethods
-    def set_callback(target_method_name, behavior_sym, callback_function_name, **options)
+    def embed_callback(target_method_name, behavior_sym, callback_function_name, **options)
       behavior = Behavior.new(behavior_sym)
       m = Module.new
       m.define_method(target_method_name) do |*params|
@@ -28,5 +28,4 @@ module EmbedCallbacks
       prepend m
     end
   end
-
 end

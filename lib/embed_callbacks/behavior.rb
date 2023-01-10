@@ -1,5 +1,5 @@
 class Behavior
-  KINDS = %i(before after around rescue ensure)
+  KINDS = %i(before after around rescue ensure).freeze
 
   def initialize(behavior)
     @behavior = behavior

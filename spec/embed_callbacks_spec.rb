@@ -311,7 +311,7 @@ RSpec.describe EmbedCallbacks do
 
     it "before callback and condition if false" do
       callback = ConditionIfCallbackClass.new
-      callback.check_flag = false 
+      callback.check_flag = false
       callback.target1
       expect('target1').to eq(callback.buffer)
     end
@@ -325,7 +325,7 @@ RSpec.describe EmbedCallbacks do
 
     it "after callback and condition if false" do
       callback = ConditionIfCallbackClass.new
-      callback.check_flag = false 
+      callback.check_flag = false
       callback.target2('condition_false')
       expect('target2condition_false').to eq(callback.buffer)
     end
@@ -339,7 +339,7 @@ RSpec.describe EmbedCallbacks do
 
     it "rescue callback and condition if false" do
       callback = ConditionIfCallbackClass.new
-      callback.check_flag = false 
+      callback.check_flag = false
       expect { callback.target3('condition_false') }.to raise_error(RuntimeError)
       expect('target3condition_false').to eq(callback.buffer)
     end
@@ -353,7 +353,7 @@ RSpec.describe EmbedCallbacks do
 
     it "ensure callback and condition if false" do
       callback = ConditionIfCallbackClass.new
-      callback.check_flag = false 
+      callback.check_flag = false
       expect { callback.target4 }.to raise_error(RuntimeError)
       expect('target4').to eq(callback.buffer)
     end
@@ -412,7 +412,7 @@ RSpec.describe EmbedCallbacks do
 
     it "before callback and condition unless false" do
       callback = ConditionUnlessCallbackClass.new
-      callback.check_flag = false 
+      callback.check_flag = false
       callback.target1
       expect('callback1target1').to eq(callback.buffer)
     end
@@ -426,7 +426,7 @@ RSpec.describe EmbedCallbacks do
 
     it "after callback and condition unless false" do
       callback = ConditionUnlessCallbackClass.new
-      callback.check_flag = false 
+      callback.check_flag = false
       callback.target2('condition_false')
       expect('target2condition_falsecallback1').to eq(callback.buffer)
     end
@@ -440,7 +440,7 @@ RSpec.describe EmbedCallbacks do
 
     it "rescue callback and condition unless false" do
       callback = ConditionUnlessCallbackClass.new
-      callback.check_flag = false 
+      callback.check_flag = false
       expect { callback.target3('condition_false') }.to raise_error(RuntimeError)
       expect('target3condition_falsecallback1').to eq(callback.buffer)
     end
@@ -454,7 +454,7 @@ RSpec.describe EmbedCallbacks do
 
     it "ensure callback and condition unless false" do
       callback = ConditionUnlessCallbackClass.new
-      callback.check_flag = false 
+      callback.check_flag = false
       expect { callback.target4 }.to raise_error(RuntimeError)
       expect('target4callback2').to eq(callback.buffer)
     end
